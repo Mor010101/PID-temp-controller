@@ -1,0 +1,1 @@
+C:\Users\tmorosan\source\repos\ArduinoMauiApp\ArduinoMauiApp\ArduinoMauiApp.csproj;x64

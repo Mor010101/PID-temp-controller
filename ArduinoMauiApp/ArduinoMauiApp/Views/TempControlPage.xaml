@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:ArduinoMauiApp.Core"
+             xmlns:models="clr-namespace:ArduinoMauiApp.Models"
+             x:Class="ArduinoMauiApp.Views.TempControlPage"
+             Title="TempControlPage">
+
+    <ContentPage.BindingContext>
+        <models:Chart />
+    </ContentPage.BindingContext>
+
+    <Grid Margin ="80,40" ColumnDefinitions="1000,400" ColumnSpacing="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+            
+
+        <VerticalStackLayout Grid.Column="1" Padding="80,100,160,0" Spacing="40">
+            <Entry 
+                MaxLength="20"
+                x:Name="TSetEntry"
+                Placeholder="SetTemp" />
+            <Entry 
+                MaxLength="20"
+                x:Name="KpEntry"
+                Placeholder="Kp" />
+            <Entry 
+                MaxLength="20"
+                x:Name="KiEntry"
+                Placeholder="Ki" />
+            <Entry 
+                MaxLength="20"
+                x:Name="KtEntry"
+                Placeholder="Kt" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Column="1" Grid.Row="1">
+            <Button
+                Margin="80,32,160,0"
+                Text="Send" 
+                Clicked="sendButtonHandler"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="1" Margin="260,32,100,28" Spacing="40">
+            <Entry 
+                MaxLength="20"
+                x:Name="TimpIncalzire"
+                Placeholder="Timp Incalzire" />
+            <Entry 
+                MaxLength="20"
+                x:Name="TimpMentinere"
+                Placeholder="Timp Mentinere" />
+            <Entry 
+                MaxLength="20"
+                x:Name="TimpRacire"
+                Placeholder="Timp Racire" />
+        </HorizontalStackLayout>
+
+        
+
+        <microcharts:ChartView Margin="20,80"
+                               x:Name="Chart"
+                               Chart="{Binding chart}"
+                               HeightRequest="300"
+                              
+                               
+                               HorizontalOptions="Fill" />
+    </Grid>
+
+</ContentPage>
